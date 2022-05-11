@@ -1,5 +1,7 @@
 package com.msheo.springbootawsstudy.controller;
 
+import com.msheo.springbootawsstudy.config.auth.LoginUser;
+import com.msheo.springbootawsstudy.config.auth.dto.SessionUser;
 import com.msheo.springbootawsstudy.dto.PostsResponseDto;
 import com.msheo.springbootawsstudy.service.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +17,12 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
+
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 
