@@ -1,7 +1,6 @@
 package com.msheo.springbootawsstudy.config.auth;
 
 import com.msheo.springbootawsstudy.domain.Role;
-import com.msheo.springbootawsstudy.service.Custom0Auth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

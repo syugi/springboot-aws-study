@@ -1,4 +1,4 @@
-package com.msheo.springbootawsstudy.service;
+package com.msheo.springbootawsstudy.config.auth;
 
 import com.msheo.springbootawsstudy.config.auth.dto.OAuthAttributes;
 import com.msheo.springbootawsstudy.config.auth.dto.SessionUser;
@@ -36,7 +36,6 @@ public class Custom0Auth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         User user = saveOrUpdate(attributes);
         httpSession.setAttribute("user", new SessionUser(user));
-
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),
